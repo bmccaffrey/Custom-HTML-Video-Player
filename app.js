@@ -4,3 +4,4 @@ var progress = document.querySelector('.progress');
 var progressFill = document.querySelector('.progress__filled');
 var play = document.querySelector('.player__button');
 var volume = document.querySelector('[name="volume"]');
+var rate = document.querySelector('[name="playbackRate"]');
