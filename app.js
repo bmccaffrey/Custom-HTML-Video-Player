@@ -33,3 +33,8 @@ function adjustVolume() {
 }
 
 volume.addEventListener( 'input', adjustVolume );
+
+function timeRemaining() {
+  console.log( video.duration - video.currentTime );
+}
+progress.addEventListener( 'click', timeRemaining );
