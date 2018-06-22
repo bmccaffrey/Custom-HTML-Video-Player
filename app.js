@@ -17,3 +17,4 @@ function playVideo() {
 }
 
 play.addEventListener( 'click', playVideo );
+video.addEventListener( 'click', playVideo );
