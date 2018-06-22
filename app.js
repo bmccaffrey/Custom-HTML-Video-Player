@@ -15,3 +15,5 @@ function playVideo() {
     video.pause();
   }
 }
+
+play.addEventListener( 'click', playVideo );
