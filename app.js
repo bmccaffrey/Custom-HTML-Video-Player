@@ -45,4 +45,8 @@ function secondsConvert(){
   console.log( `${minutes}:${seconds}`);
 }
 
+function setProgressFill() {
+  let remaining = 100 - ( ( timeRemaining() / video.duration ) * 100 ).toFixed(2); progressFill.style.flexBasis = `${remaining}%`;
+}
+
 progress.addEventListener( 'click', secondsConvert );
