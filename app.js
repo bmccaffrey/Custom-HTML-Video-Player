@@ -35,6 +35,14 @@ function adjustVolume() {
 volume.addEventListener( 'input', adjustVolume );
 
 function timeRemaining() {
-  console.log( video.duration - video.currentTime );
+  return ( video.duration - video.currentTime );
 }
-progress.addEventListener( 'click', timeRemaining );
+
+function secondsConvert(){
+  time = timeRemaining();
+  let minutes = Math.floor( time / 60 );
+  let seconds = Math.ceil( time % 60 );
+  console.log( `${minutes}:${seconds}`);
+}
+
+progress.addEventListener( 'click', secondsConvert );
