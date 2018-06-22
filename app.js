@@ -27,3 +27,9 @@ function playVideo() {
 
 play.addEventListener( 'click', playVideo );
 video.addEventListener( 'click', playVideo );
+
+function adjustVolume() {
+  video.volume = volume.value;
+}
+
+volume.addEventListener( 'input', adjustVolume );
