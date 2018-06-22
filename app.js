@@ -8,12 +8,21 @@ var rate = document.querySelector('[name="playbackRate"]');
 var rewind = document.querySelector('[data-skip ="-10"]');
 var forward = document.querySelector('[data-skip="25"]');
 
+function pauseButtonToggle() {
+  if ( video.paused ) {
+    play.textContent = '►';
+  } else {
+    play.textContent = '||';
+  }
+}
+
 function playVideo() {
   if ( video.paused ) {
     video.play();
   } else {
     video.pause();
   }
+  pauseButtonToggle();
 }
 
 play.addEventListener( 'click', playVideo );
