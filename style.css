@@ -109,6 +109,7 @@ body {
   color: white;
   display: block;
   float: right;
+  padding-right: 7px;
 }
 
 /* unholy css to style input type="range" */
