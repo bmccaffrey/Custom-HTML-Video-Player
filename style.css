@@ -104,6 +104,13 @@ body {
   flex-basis:50%;
 }
 
+.progress__remainder {
+  font-size: initial;
+  color: white;
+  display: block;
+  float: right;
+}
+
 /* unholy css to style input type="range" */
 
 input[type=range] {
