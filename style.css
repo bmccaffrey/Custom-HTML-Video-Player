@@ -104,12 +104,17 @@ body {
   flex:0;
 }
 
+.player:hover .progress__remainder {
+  transform: translateX(0);
+}
+
 .progress__remainder {
   font-size: initial;
   color: white;
   display: block;
   float: right;
   padding-right: 7px;
+  transform: translateX(100%);
 }
 
 /* unholy css to style input type="range" */
