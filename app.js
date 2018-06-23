@@ -7,7 +7,6 @@ var rate = document.querySelector('[name="playbackRate"]');
 var rewind = document.querySelector('[data-skip ="-10"]');
 var forward = document.querySelector('[data-skip="25"]');
 var remainder = document.querySelector( '.progress__remainder' );
-var remainderInterval = setInterval(displayRemainder, 1000);
 
 function pauseButtonToggle() {
   if ( video.paused ) {
@@ -26,19 +25,13 @@ function playVideo() {
   pauseButtonToggle();
 }
 
-play.addEventListener( 'click', playVideo );
-video.addEventListener( 'click', playVideo );
-
 function adjustVolume() {
   video.volume = volume.value;
 }
 
-volume.addEventListener( 'input', adjustVolume );
-
 function timeRemaining() {
   return ( video.duration - video.currentTime );
 }
-
 
 function convertSeconds(){
   let time = timeRemaining();
@@ -54,21 +47,26 @@ function setProgressFill() {
   progressFill.style.flexBasis = `${remaining}%`;
 }
 
-setInterval(setProgressFill, 1000);
-
 function setPlayBackRate() {
   video.playbackRate = rate.value;
 }
-rate.addEventListener( 'input', setPlayBackRate );
 
 function rewindTenSeconds() {
   video.currentTime -= 10;
   setProgressFill();
 }
-rewind.addEventListener( 'click', rewindTenSeconds );
 
 function fastForward() {
   video.currentTime += 25;
   setProgressFill();
 }
+
+
+play.addEventListener( 'click', playVideo );
+video.addEventListener( 'click', playVideo );
+volume.addEventListener( 'input', adjustVolume );
+rate.addEventListener( 'input', setPlayBackRate );
+rewind.addEventListener( 'click', rewindTenSeconds );
 forward.addEventListener( 'click', fastForward );
+setInterval(setProgressFill, 1000);
+setInterval(displayRemainder, 1000);
