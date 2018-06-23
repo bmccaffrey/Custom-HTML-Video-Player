@@ -89,6 +89,7 @@ body {
 .progress {
   flex:10;
   position: relative;
+  justify-content: space-between;
   display:flex;
   flex-basis:100%;
   height:5px;
