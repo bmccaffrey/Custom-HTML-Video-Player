@@ -1,5 +1,4 @@
 var video = document.querySelector('video');
-var controls = document.querySelector('.player__controls');
 var progress = document.querySelector('.progress');
 var progressFill = document.querySelector('.progress__filled');
 var play = document.querySelector('.player__button');
@@ -7,6 +6,8 @@ var volume = document.querySelector('[name="volume"]');
 var rate = document.querySelector('[name="playbackRate"]');
 var rewind = document.querySelector('[data-skip ="-10"]');
 var forward = document.querySelector('[data-skip="25"]');
+var remainder = document.querySelector( '.progress__remainder' );
+var remainderInterval = setInterval(displayRemainder, 1000);
 
 function pauseButtonToggle() {
   if ( video.paused ) {
@@ -38,19 +39,21 @@ function timeRemaining() {
   return ( video.duration - video.currentTime );
 }
 
-function secondsConvert(){
+
+function convertSeconds(){
   let time = timeRemaining();
   let minutes = Math.floor( time / 60 );
   let seconds = Math.ceil( time % 60 );
-  console.log( `${minutes}:${seconds}`);
+  return ( `${minutes}:${seconds}` );
 }
+
+function displayRemainder() { remainder.textContent = convertSeconds(); }
 
 function setProgressFill() {
   let remaining = 100 - ( ( timeRemaining() / video.duration ) * 100 ).toFixed(2); 
   progressFill.style.flexBasis = `${remaining}%`;
 }
 
-progress.addEventListener( 'click', secondsConvert );
 setInterval(setProgressFill, 1000);
 
 function setPlayBackRate() {
