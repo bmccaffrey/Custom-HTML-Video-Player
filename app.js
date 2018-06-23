@@ -57,3 +57,9 @@ function setPlayBackRate() {
   video.playbackRate = rate.value;
 }
 rate.addEventListener( 'input', setPlayBackRate );
+
+function rewindTenSeconds() {
+  video.currentTime -= 10;
+  setProgressFill();
+}
+rewind.addEventListener( 'click', rewindTenSeconds );
