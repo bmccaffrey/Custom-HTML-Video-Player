@@ -52,3 +52,8 @@ function setProgressFill() {
 
 progress.addEventListener( 'click', secondsConvert );
 setInterval(setProgressFill, 1000);
+
+function setPlayBackRate() {
+  video.playbackRate = rate.value;
+}
+rate.addEventListener( 'input', setPlayBackRate );
