@@ -39,14 +39,16 @@ function timeRemaining() {
 }
 
 function secondsConvert(){
-  time = timeRemaining();
+  let time = timeRemaining();
   let minutes = Math.floor( time / 60 );
   let seconds = Math.ceil( time % 60 );
   console.log( `${minutes}:${seconds}`);
 }
 
 function setProgressFill() {
-  let remaining = 100 - ( ( timeRemaining() / video.duration ) * 100 ).toFixed(2); progressFill.style.flexBasis = `${remaining}%`;
+  let remaining = 100 - ( ( timeRemaining() / video.duration ) * 100 ).toFixed(2); 
+  progressFill.style.flexBasis = `${remaining}%`;
 }
 
 progress.addEventListener( 'click', secondsConvert );
+setInterval(setProgressFill, 1000);
