@@ -63,3 +63,9 @@ function rewindTenSeconds() {
   setProgressFill();
 }
 rewind.addEventListener( 'click', rewindTenSeconds );
+
+function fastForward() {
+  video.currentTime += 25;
+  setProgressFill();
+}
+forward.addEventListener( 'click', fastForward );
